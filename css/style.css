@@ -99,6 +99,10 @@ a {
 .contacts-tel-link:focus {
   color: var(--btn-color);
 }
+.navigation-link {
+  transition: color var(--transition-time) var(--cubic);
+}
+
 .main-btn-filter.current:hover,
 .main-btn-filter.current {
   color: var(--first-color);
@@ -125,8 +129,19 @@ a {
   font-size: 14px;
   line-height: 1.14;
   color: var(--second-text-color);
+  position: relative;
 
   transition: var(--cubic), var(--trsansition-time);
+}
+.navigation-link.current::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--btn-color);
+  border-radius: 2px;
 }
 
 .link-contacts-list {
@@ -273,6 +288,30 @@ a {
 }
 .profession + .profession {
   margin-left: 30px;
+}
+.profession-box {
+  position: relative;
+}
+.bottom-box {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 370px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(47, 48, 58, 0.8);
+}
+.text-bottom {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--first-color);
 }
 
 /*-------------------------------------------------- Наша команда -----------------------------------------------------------------------*/
@@ -574,7 +613,41 @@ footer {
 }*/
 
 .project-list > .item-project {
+  transition: box-shadow var(--transition-time), var(--cubic);
   flex-basis: calc(100% / 3 - var(--size-simple));
   margin-left: var(--size-simple);
   margin-top: var(--size-simple);
+}
+.over-box {
+  display: block;
+
+  position: relative;
+  overflow: hidden;
+}
+.over-mov {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.over-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  padding: 63px 24px;
+
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.11;
+  letter-spacing: 0.03em;
+
+  color: var(--first-color);
+}
+.over-mov,
+.over-text {
+  transform: translateY(101%);
+  transition: transform var(--transition-time), var(--cubic);
 }
