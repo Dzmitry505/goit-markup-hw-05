@@ -538,7 +538,9 @@ footer {
 }
 /*-------------------------------------------отдельно к портфолио----------------------------------------------------------------------*/
 .main-btn-filter {
-  transition: var(--cubic), var(--trsansition-time);
+  transition: background-color var(--transition-time) var(--cubic),
+    color var(--transition-time) var(--cubic),
+    box-shadow var(--transition-time) var(--cubic);
   display: inline-block;
   font-weight: 500;
   font-family: inherit;
