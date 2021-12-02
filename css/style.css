@@ -660,12 +660,15 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
+  transition: opacity 250ms, visibility 250ms;
+}
+.darkspace.is-hidden .modal {
+  transform: scale(1.8) rotate(90deg);
 }
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   transition: transform var(--transition-time) var(--cubic);
   width: 528px;
   min-height: 581px;
@@ -673,8 +676,13 @@ footer {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transform: scale(1) rotate(0) translate(-50%, -50%);
+  transition: transform 250ms;
 }
 .modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   top: 8px;
   right: 8px;
@@ -685,9 +693,14 @@ footer {
   border-radius: 50%;
 }
 .close-icon {
-  fill: black;
+  fill: var(--second-text-color);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
