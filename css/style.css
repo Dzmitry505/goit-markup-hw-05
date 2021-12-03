@@ -18,7 +18,7 @@ p {
   --border-item-color: #eeeeee;
   --icon-social-color: #afb1b8;
 
-  --trsansition-time: 250ms;
+  --transition-time: 250ms;
   --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -103,8 +103,8 @@ button:focus {
 .contacts-tel-link:focus {
   color: var(--btn-color);
 }
-.navigation-link {
-  transition: color var(--transition-time) var(--cubic);
+.current {
+  position: relative;
 }
 
 .main-btn-filter.current:hover,
@@ -133,9 +133,7 @@ button:focus {
   font-size: 14px;
   line-height: 1.14;
   color: var(--second-text-color);
-  position: relative;
-
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
 }
 .navigation-link.current::after {
   content: "";
@@ -162,7 +160,7 @@ button:focus {
   font-size: 14px;
   line-height: 1.14;
   color: var(--third-text-color);
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
 }
 
 /*-----------------------------------------------------ГЕРОЙ-------------------------------------------------------*/
@@ -204,7 +202,7 @@ button:focus {
   font-family: inherit;
   padding: 10px 32px;
 
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
 
   min-width: 200px;
   background-color: var(--btn-color);
@@ -339,8 +337,7 @@ button:focus {
 }
 .words {
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 32px;
+  padding: 30px 32px 32px 32px;
   text-align: center;
 }
 .team-name {
@@ -384,7 +381,7 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
 }
 .team-social-link:hover,
 .team-social-link:focus,
@@ -425,11 +422,11 @@ button:focus {
 .client-item + .client-item {
   margin-left: 30px;
 }
-.client-item:hover .client-link,
+/*.client-item:hover .client-link,
 .client-item:focus .client-link {
-  fill: var(--btn-color);
+  color: var(--btn-color);
   border-color: var(--btn-color);
-}
+}*/
 .client-title {
   margin-bottom: 50px;
   text-align: center;
@@ -445,19 +442,24 @@ button:focus {
   align-items: center;
   width: 170px;
   height: 92px;
-  fill: var(--icon-social-color);
+  color: var(--icon-social-color);
   border: 1px solid var(--icon-social-color);
   border-radius: 4px;
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
 }
 .client-link:hover,
 .client-link:focus {
-  fill: var(--btn-color);
-}
-.client-icon:hover,
-.client-icon:focus {
+  color: var(--btn-color);
   border-color: var(--btn-color);
 }
+.client-icon {
+  fill: currentColor;
+}
+/*.client-icon:hover,
+.client-icon:focus {
+  border-color: var(--btn-color);
+  fill: var(--btn-color);
+}*/
 
 /*------------------------------------------------- Подвал------------------------------------------------------------------------------ */
 .footer-container {
@@ -481,7 +483,7 @@ footer {
   color: var(--first-color);
 }
 .l-link {
-  transition: var(--cubic), var(--trsansition-time);
+  transition: color var(--cubic), var(--trsansition-time);
   font-family: inherit;
   font-style: normal;
   font-weight: normal;
@@ -598,15 +600,25 @@ footer {
   margin-left: -30px;
 }
 .item-link {
-  transition: box-shadow var(--cubic), var(--trsansition-time);
   display: block;
+  transition: box-shadow var(--transition-time) var(--cubic);
 }
+. .item-link:hover,
+.item-link:focus {
+  transform: translateY(0);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.item-link:hover .over-text {
+  transform: translateY(0);
+}
+
 .item-squad {
   padding: 20px 24px;
   border: 1px solid var(--border-item-color);
   border-top: 0;
 }
-.item-project:hover,
+/*.item-project:hover,
 .item-project:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -618,29 +630,32 @@ footer {
   margin-bottom: 0;
 }*/
 
-.project-list > .item-project {
-  transition: box-shadow var(--transition-time), var(--cubic);
+.project-list .item-project {
   flex-basis: calc(100% / 3 - var(--size-simple));
   margin-left: var(--size-simple);
   margin-top: var(--size-simple);
 }
-.item-project:hover .over-text {
-  transform: translateY(0);
-}
+
 .over-box {
   position: relative;
   overflow: hidden;
 }
-.over-mov {
+.over-t {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.over-t,
+.over-text {
+  transform: translateY(101%);
+  transition: transform var(--transition-time) var(--cubic);
 }
 .over-text {
   transform: translateY(101%);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform var(--transition-time) var(--cubic);
   width: 100%;
   height: 100%;
   position: absolute;
@@ -653,8 +668,8 @@ footer {
   letter-spacing: 0.03em;
 
   color: var(--first-color);
-  background-color: rgba(33, 150, 243, 0.9);
 }
+/*---------------МОДАЛЬНОЕ ОКНО----------*/
 .darkspace {
   width: 100vw;
   height: 100vh;
