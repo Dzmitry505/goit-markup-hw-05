@@ -133,7 +133,7 @@ button:focus {
   font-size: 14px;
   line-height: 1.14;
   color: var(--second-text-color);
-  transition: color var(--cubic), var(--transition-time);
+  transition: color var(--transition-time) var(--cubic);
 }
 .navigation-link.current::after {
   content: "";
@@ -160,7 +160,7 @@ button:focus {
   font-size: 14px;
   line-height: 1.14;
   color: var(--third-text-color);
-  transition: color var(--cubic), var(--trsansition-time);
+  transition: color var(--trsansition-time) var(--cubic);
 }
 
 /*-----------------------------------------------------ГЕРОЙ-------------------------------------------------------*/
@@ -202,7 +202,7 @@ button:focus {
   font-family: inherit;
   padding: 10px 32px;
 
-  transition: box-shadow var(--cubic), var(--transition-time);
+  transition: background-color var(--transition-time) var(--cubic);
 
   min-width: 200px;
   background-color: var(--btn-color);
@@ -371,7 +371,7 @@ button:focus {
 }
 .team-social-link {
   color: var(--icon-social-color);
-  transition: color var(--cubic), var(--transition-time);
+  transition: color var(--transition-time) var(--cubic);
 }
 
 .team-social-link,
@@ -382,7 +382,7 @@ button:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--cubic), var(--transition-time);
+  transition: background-color var(--transition-time) var(--cubic);
 }
 
 .team-social-link:hover,
@@ -447,8 +447,8 @@ button:focus {
   color: var(--icon-social-color);
   border: 1px solid var(--icon-social-color);
   border-radius: 4px;
-  transition: color var(--cubic) var(--transition-time),
-    border-color var(--cubic) var(--transition-time);
+  transition: color var(--transition-time) var(--cubic),
+    border-color var(--transition-time) var(--cubic);
 }
 .client-link:hover,
 .client-link:focus {
@@ -486,7 +486,7 @@ footer {
   color: var(--first-color);
 }
 .l-link {
-  transition: color var(--cubic), var(--trsansition-time);
+  transition: color var(--trsansition-time) var(--cubic);
   font-family: inherit;
   font-style: normal;
   font-weight: normal;
@@ -662,7 +662,8 @@ footer {
 /*.over-t,*/
 .over-text {
   transform: translateY(101%);
-  transition: transform var(--transition-time) var(--cubic);
+  transition: transform var(--transition-time) var(--cubic),
+    opacity var(--transition-time) var(--cubic);
 }
 /*.item-project:hover .over-t,*/
 .item-project:hover .over-text,
