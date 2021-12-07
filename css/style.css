@@ -486,7 +486,7 @@ footer {
   color: var(--first-color);
 }
 .l-link {
-  transition: color var(--trsansition-time) var(--cubic);
+  transition: color var(--transition-time) var(--cubic);
   font-family: inherit;
   font-style: normal;
   font-weight: normal;
